@@ -1,56 +1,55 @@
 import 'package:akhbarak_el_youm/Core/components/navigator.dart';
 import 'package:akhbarak_el_youm/Core/components/size_box.dart';
+import 'package:akhbarak_el_youm/View/Mobile/NewsScreen/news_screen.dart';
 import 'package:akhbarak_el_youm/View/Mobile/Settings/settings_screen.dart';
 import 'package:akhbarak_el_youm/View/Mobile/Widget/grid_view.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   static const String routeName = 'Home-Screen';
-   HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
 
-  List <Category> category =
-  [
-    Category(
-        categoryID: 'Sports',
-        categoryTitle: 'Sports',
-        categoryImage: 'assets/images/sports.png',
-        categoryBackGround: const Color.fromARGB(255, 201, 28, 34),
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  List<CategoryModel> allCategory = [
+    CategoryModel(
+      categoryID: 'Sports',
+      categoryTitle: 'Sports',
+      categoryImage: 'assets/images/sports.png',
+      categoryBackGround: const Color.fromARGB(255, 201, 28, 34),
     ),
-
-    Category(
-        categoryID: 'Politics',
-        categoryTitle: 'Politics',
-        categoryImage: 'assets/images/Politics.png',
-        categoryBackGround: const Color.fromARGB(255, 0, 62, 144),
+    CategoryModel(
+      categoryID: 'Politics',
+      categoryTitle: 'Politics',
+      categoryImage: 'assets/images/Politics.png',
+      categoryBackGround: const Color.fromARGB(255, 0, 62, 144),
     ),
-
-    Category(
+    CategoryModel(
         categoryID: 'Health',
         categoryTitle: 'Health',
         categoryImage: 'assets/images/health.png',
-        categoryBackGround: const Color.fromARGB(255, 237, 30, 121)
-    ),
-    Category(
+        categoryBackGround: const Color.fromARGB(255, 237, 30, 121)),
+    CategoryModel(
         categoryID: 'Business',
         categoryTitle: 'Business',
         categoryImage: 'assets/images/bussines.png',
-        categoryBackGround: const Color.fromARGB(255, 207, 126, 72)
-    ),
-    Category(
+        categoryBackGround: const Color.fromARGB(255, 207, 126, 72)),
+    CategoryModel(
         categoryID: 'Environment',
         categoryTitle: 'Environment',
         categoryImage: 'assets/images/environment.png',
-        categoryBackGround: const Color.fromARGB(255, 72, 130, 207)
-    ),
-    Category(
+        categoryBackGround: const Color.fromARGB(255, 72, 130, 207)),
+    CategoryModel(
         categoryID: 'Science',
         categoryTitle: 'Science',
         categoryImage: 'assets/images/science.png',
-        categoryBackGround: const Color.fromARGB(255, 242, 211, 82)
-    ),
+        categoryBackGround: const Color.fromARGB(255, 242, 211, 82)),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -66,8 +65,9 @@ class HomeScreen extends StatelessWidget {
         ),
         Scaffold(
           appBar: AppBar(
-            title: const Text(
-              'Akhbarak El Youm',
+            title:  Text(
+              selectedCategory == null ?
+              'Akhbarak El Youm' : selectedCategory!.categoryTitle,
             ),
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
@@ -75,7 +75,6 @@ class HomeScreen extends StatelessWidget {
               bottomRight: Radius.circular(30),
             )),
           ),
-
           drawer: Drawer(
             child: Column(
               children: [
@@ -84,47 +83,57 @@ class HomeScreen extends StatelessWidget {
                   color: Colors.green,
                   width: double.infinity,
                   height: 130,
-                  child: Text('Akhbarak El Youm!',style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24,
-                    color: Colors.white
-                  ),),
-                ),
-                InkWell(
-                  onTap: (){},
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      children:
-                      [
-                        const Icon(Icons.menu),
-                        const Space(width: 20, height: 0),
-                        Text('Category',style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 24,
-
-                        ),),
-                      ],
-                    ),
+                  child: Text(
+                    'Akhbarak El Youm!',
+                    style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24,
+                        color: Colors.white),
                   ),
                 ),
                 InkWell(
                   onTap: ()
                   {
+                    setState(() {
+                      selectedCategory = null;
+                      pop(context);
+                    });
+
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        const Icon(Icons.menu),
+                        const Space(width: 20, height: 0),
+                        Text(
+                          'Category',
+                          style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 24,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
                     navigateTo(context, routeName: SettingsScreen.routeName);
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
-                      children:
-                      [
+                      children: [
                         const Icon(Icons.settings),
                         const Space(width: 20, height: 0),
-                        Text('Settings',style: GoogleFonts.poppins(
+                        Text(
+                          'Settings',
+                          style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w500,
                             fontSize: 24,
-
-                        ),),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -132,38 +141,48 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          body: Container(
-            padding: const EdgeInsets.all(10),
-            child: Column(
-
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(
-                  'Pick your category\nof interest',
-                  style: Theme.of(context).textTheme.headline6?.copyWith(
-                    color: Colors.black54
-                  ),
-                ),
-                Expanded(
-                  child: GridView.builder(
-                    itemCount: category.length,
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                        crossAxisSpacing: 8,
-                        mainAxisSpacing: 8,
-                        childAspectRatio: 6/7
+          body: selectedCategory == null
+              ? Container(
+                  padding: const EdgeInsets.all(10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text(
+                        'Pick your category\nof interest',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline6
+                            ?.copyWith(color: Colors.black54),
                       ),
-                      itemBuilder: (context,index) => CategoryGridView(
-                          category: category[index],
-                          index: index),
-
+                      Expanded(
+                        child: GridView.builder(
+                          padding: const EdgeInsets.all(10),
+                          itemCount: allCategory.length,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                  crossAxisSpacing: 8,
+                                  mainAxisSpacing: 8,
+                                  childAspectRatio: 6 / 7),
+                          itemBuilder: (context, index) => CategoryGridView(
+                              onClickItem: onClickFunction,
+                              category: allCategory[index],
+                              index: index),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ],
-            ),
-          ),
+                )
+              : NewsScreen(selectedCategory!),
         ),
       ],
     );
+  }
+
+  CategoryModel? selectedCategory = null;
+  void onClickFunction(CategoryModel category) {
+    setState(() {
+      selectedCategory = category;
+    });
   }
 }
