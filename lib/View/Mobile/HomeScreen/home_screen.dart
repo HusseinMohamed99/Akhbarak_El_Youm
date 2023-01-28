@@ -4,6 +4,7 @@ import 'package:akhbarak_el_youm/View/Mobile/NewsScreen/news_screen.dart';
 import 'package:akhbarak_el_youm/View/Mobile/Settings/settings_screen.dart';
 import 'package:akhbarak_el_youm/View/Mobile/Widget/grid_view.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -76,67 +77,82 @@ class _HomeScreenState extends State<HomeScreen> {
             )),
           ),
           drawer: Drawer(
-            child: Column(
+
+            child: Stack(
               children: [
                 Container(
-                  alignment: Alignment.center,
-                  color: Colors.green,
+                  color: Colors.white,
                   width: double.infinity,
-                  height: 130,
-                  child: Text(
-                    'Akhbarak El Youm!',
-                    style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24,
-                        color: Colors.white),
+                  height: double.infinity,
+                  child: Image.asset(
+                    'assets/images/pattern.png',
+                    fit: BoxFit.cover,
                   ),
-                ),
-                InkWell(
-                  onTap: ()
-                  {
-                    setState(() {
-                      selectedCategory = null;
-                      pop(context);
-                    });
 
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      children: [
-                        const Icon(Icons.menu),
-                        const Space(width: 20, height: 0),
-                        Text(
-                          'Category',
-                          style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 24,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
                 ),
-                InkWell(
-                  onTap: () {
-                    navigateTo(context, routeName: SettingsScreen.routeName);
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      children: [
-                        const Icon(Icons.settings),
-                        const Space(width: 20, height: 0),
-                        Text(
-                          'Settings',
-                          style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w500,
+                Column(
+                  children: [
+                    Container(
+                      alignment: Alignment.center,
+                      color: Colors.green,
+                      width: double.infinity,
+                      height: 130,
+                      child: Text(
+                        'Akhbarak El Youm!',
+                        style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.bold,
                             fontSize: 24,
-                          ),
-                        ),
-                      ],
+                            color: Colors.white),
+                      ),
                     ),
-                  ),
+                    InkWell(
+                      onTap: ()
+                      {
+                        setState(() {
+                          selectedCategory = null;
+                          pop(context);
+                        });
+
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            const Icon(FontAwesomeIcons.warehouse),
+                            const Space(width: 20, height: 0),
+                            Text(
+                              'Category',
+                              style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 24,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        navigateTo(context, routeName: SettingsScreen.routeName);
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            const Icon(FontAwesomeIcons.sliders),
+                            const Space(width: 20, height: 0),
+                            Text(
+                              'Settings',
+                              style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 24,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
