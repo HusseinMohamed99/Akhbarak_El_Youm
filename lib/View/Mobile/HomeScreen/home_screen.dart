@@ -1,8 +1,10 @@
 import 'package:akhbarak_el_youm/Core/components/navigator.dart';
 import 'package:akhbarak_el_youm/Core/components/size_box.dart';
+import 'package:akhbarak_el_youm/Core/model/category_model.dart';
 import 'package:akhbarak_el_youm/View/Mobile/NewsScreen/news_screen.dart';
 import 'package:akhbarak_el_youm/View/Mobile/Settings/settings_screen.dart';
-import 'package:akhbarak_el_youm/View/Mobile/Widget/grid_view.dart';
+import 'package:akhbarak_el_youm/View/Mobile/Widget/category_grid_view.dart';
+import 'package:akhbarak_el_youm/generated/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,38 +19,44 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<CategoryModel> allCategory = [
+   // business entertainment general health science sports technology
     CategoryModel(
-      categoryID: 'Sports',
+      categoryID: 'sports',
       categoryTitle: 'Sports',
-      categoryImage: 'assets/images/sports.png',
+      categoryImage: Assets.imagesSports,
       categoryBackGround: const Color.fromARGB(255, 201, 28, 34),
     ),
     CategoryModel(
-      categoryID: 'Politics',
-      categoryTitle: 'Politics',
-      categoryImage: 'assets/images/Politics.png',
+      categoryID: 'general',
+      categoryTitle: 'General',
+      categoryImage: Assets.imagesPolitics,
       categoryBackGround: const Color.fromARGB(255, 0, 62, 144),
     ),
     CategoryModel(
         categoryID: 'Health',
         categoryTitle: 'Health',
-        categoryImage: 'assets/images/health.png',
+        categoryImage: Assets.imagesHealth,
         categoryBackGround: const Color.fromARGB(255, 237, 30, 121)),
     CategoryModel(
-        categoryID: 'Business',
+        categoryID: 'business',
         categoryTitle: 'Business',
-        categoryImage: 'assets/images/bussines.png',
+        categoryImage: Assets.imagesBussines,
         categoryBackGround: const Color.fromARGB(255, 207, 126, 72)),
     CategoryModel(
-        categoryID: 'Environment',
-        categoryTitle: 'Environment',
-        categoryImage: 'assets/images/environment.png',
+        categoryID: 'entertainment',
+        categoryTitle: 'Entertainment',
+        categoryImage: Assets.imagesEnvironment,
         categoryBackGround: const Color.fromARGB(255, 72, 130, 207)),
     CategoryModel(
-        categoryID: 'Science',
+        categoryID: 'science',
         categoryTitle: 'Science',
-        categoryImage: 'assets/images/science.png',
+        categoryImage: Assets.imagesScience,
         categoryBackGround: const Color.fromARGB(255, 242, 211, 82)),
+    CategoryModel(
+        categoryID: 'technology',
+        categoryTitle: 'Technology',
+        categoryImage: Assets.imagesScience,
+        categoryBackGround: const Color.fromARGB(255, 57, 165, 82)),
   ];
 
   @override
@@ -60,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
           width: double.infinity,
           height: double.infinity,
           child: Image.asset(
-            'assets/images/pattern.png',
+            Assets.imagesPattern,
             fit: BoxFit.cover,
           ),
         ),
@@ -77,7 +85,6 @@ class _HomeScreenState extends State<HomeScreen> {
             )),
           ),
           drawer: Drawer(
-
             child: Stack(
               children: [
                 Container(
@@ -85,10 +92,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   width: double.infinity,
                   height: double.infinity,
                   child: Image.asset(
-                    'assets/images/pattern.png',
+                    Assets.imagesPattern,
                     fit: BoxFit.cover,
                   ),
-
                 ),
                 Column(
                   children: [
@@ -195,7 +201,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  CategoryModel? selectedCategory = null;
+  CategoryModel? selectedCategory;
   void onClickFunction(CategoryModel category) {
     setState(() {
       selectedCategory = category;

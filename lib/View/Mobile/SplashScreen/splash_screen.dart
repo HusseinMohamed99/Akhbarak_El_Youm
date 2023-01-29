@@ -1,7 +1,7 @@
 import 'dart:async';
-
 import 'package:akhbarak_el_youm/Core/components/navigator.dart';
 import 'package:akhbarak_el_youm/View/Mobile/HomeScreen/home_screen.dart';
+import 'package:akhbarak_el_youm/generated/assets.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -34,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
           width: double.infinity,
           height: double.infinity,
           child: Image.asset(
-            'assets/images/pattern.png',
+            Assets.imagesPattern,
             fit: BoxFit.cover,
           ),
         ),
@@ -44,7 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset('assets/images/logo.png',fit: BoxFit.contain,),
+                Image.asset(Assets.imagesLogo,fit: BoxFit.contain,),
                 DefaultTextStyle(
                   style: GoogleFonts.poppins(
                     color: Colors.green,

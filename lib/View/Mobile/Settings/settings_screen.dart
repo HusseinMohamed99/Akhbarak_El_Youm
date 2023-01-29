@@ -1,6 +1,7 @@
 import 'package:akhbarak_el_youm/Core/components/size_box.dart';
 import 'package:akhbarak_el_youm/Core/providers/settings_provider.dart';
 import 'package:akhbarak_el_youm/Core/style/theme.dart';
+import 'package:akhbarak_el_youm/generated/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -26,7 +27,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           width: double.infinity,
           height: double.infinity,
           child: Image.asset(
-            'assets/images/pattern.png',
+            Assets.imagesPattern,
             fit: BoxFit.cover,
           ),
         ),

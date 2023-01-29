@@ -1,5 +1,4 @@
-import 'package:akhbarak_el_youm/Core/adaptive/indicator.dart';
-import 'package:akhbarak_el_youm/Core/components/indicator.dart';
+import 'package:akhbarak_el_youm/Core/model/category_model.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -50,17 +49,4 @@ class CategoryGridView extends StatelessWidget {
       ),
     );
   }
-}
-
-class CategoryModel {
-  String categoryID;
-  String categoryTitle;
-  String categoryImage;
-  Color categoryBackGround;
-
-  CategoryModel(
-      {required this.categoryID,
-      required this.categoryTitle,
-      required this.categoryImage,
-      required this.categoryBackGround});
 }

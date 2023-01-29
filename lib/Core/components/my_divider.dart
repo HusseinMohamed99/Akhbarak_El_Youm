@@ -6,9 +6,11 @@ class MyDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Container(
+
+       margin: const EdgeInsets.symmetric(vertical: 10),
       width: double.infinity,
       height: 3.0,
-      color: Theme.of(context).accentColor,
+      color: Colors.red,
     );
   }
 }
