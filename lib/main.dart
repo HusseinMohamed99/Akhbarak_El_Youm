@@ -2,6 +2,7 @@ import 'package:akhbarak_el_youm/View/Desktop/desktop_screen.dart';
 import 'package:akhbarak_el_youm/Core/providers/settings_provider.dart';
 import 'package:akhbarak_el_youm/Core/style/theme.dart';
 import 'package:akhbarak_el_youm/View/Mobile/HomeScreen/home_screen.dart';
+import 'package:akhbarak_el_youm/View/Mobile/NewsDetails/news_details.dart';
 import 'package:akhbarak_el_youm/View/Mobile/Settings/settings_screen.dart';
 import 'package:akhbarak_el_youm/View/Mobile/SplashScreen/splash_screen.dart';
 import 'package:flutter/foundation.dart';
@@ -80,7 +81,7 @@ class MyApp extends StatelessWidget {
               SplashScreen.routeName: (_) => const SplashScreen(),
               HomeScreen.routeName: (_) =>  HomeScreen(),
               SettingsScreen.routeName: (_) => const SettingsScreen(),
-              // SuraDetailsScreen.routeName: (_) => const SuraDetailsScreen(),
+             NewsDetails.routeName: (_) => const NewsDetails(),
               // HadithScreen.routeName: (_) => const HadithScreen(),
               // HadithDetailsScreen.routeName: (_) => const HadithDetailsScreen(),
               // SebhaScreen.routeName: (_) => const SebhaScreen(),

@@ -31,7 +31,7 @@ class ApisManager {
     var url = Uri.https(baseUrl, '/v2/everything', {
       'apiKey': '0803a9972d064bd8b3b7379123ea164c',
       'sources': sourceID,
-    });
+          });
     var response = await http.get(url);
 
     return NewsResponse.fromJson(jsonDecode(response.body));

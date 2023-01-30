@@ -34,7 +34,7 @@ class ThemeApp {
       color: lightPrimary,
       titleTextStyle: TextStyle(
           color: Colors.white, fontSize: 32, fontWeight: FontWeight.w500),
-      iconTheme: IconThemeData(color: Colors.black),
+      iconTheme: IconThemeData(color: Colors.white),
       systemOverlayStyle: SystemUiOverlayStyle(
           statusBarBrightness: Brightness.dark,
           statusBarColor: Colors.transparent,
