@@ -17,7 +17,7 @@ class NewsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: FutureBuilder<NewsResponse>(
-        future: ApisManager.getNews(source.id ?? ''),
+        future: ApisManager.getNews(sourceID: source.id ?? ''),
         builder: (buildContext, snapShot)
         {
           if (snapShot.connectionState == ConnectionState.waiting) {

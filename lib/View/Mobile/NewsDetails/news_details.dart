@@ -107,7 +107,7 @@ class NewsDetails extends StatelessWidget {
                           MyDateUtils.formatDate(news.publishedAt ?? ''),
                             textAlign: TextAlign.end,
                           ),
-                           Space(width: 0, height: 10),
+                           const Space(width: 0, height: 10),
                            Text(
                             news.description ?? '',
                              style: GoogleFonts.poppins(
@@ -120,14 +120,14 @@ class NewsDetails extends StatelessWidget {
                               _launchUrl(Uri.parse(news.url??''));
                             },
                             child: Container(
-                              padding: EdgeInsets.only(top: 10),
+                              padding: const EdgeInsets.only(top: 10),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                    Text('View Full Article',style: GoogleFonts.poppins(
                                     fontSize: 14,
                                      fontWeight: FontWeight.bold,
-                                     color: Color.fromARGB(255, 66, 80, 92),
+                                     color: const Color.fromARGB(255, 66, 80, 92),
                                   ),),
                                   const Space(width: 10, height: 0),
                                   const Icon(Icons.arrow_right,color: Color.fromARGB(255, 66, 80, 92))

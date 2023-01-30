@@ -18,19 +18,21 @@ class ApisManager {
     var url = Uri.https(baseUrl, '/v2/top-headlines/sources', {
       'apiKey': '0803a9972d064bd8b3b7379123ea164c',
       'category': categoryID,
+
     });
     var response = await http.get(url);
 
     return SourcesResponse.fromJson(jsonDecode(response.body));
   }
 
-  static Future<NewsResponse> getNews(String sourceID)async
+  static Future<NewsResponse> getNews({String? sourceID, String? query})async
   {
     // https://newsapi.org/v2/everything?sources=business-insider&apiKey=0803a9972d064bd8b3b7379123ea164c
 
     var url = Uri.https(baseUrl, '/v2/everything', {
       'apiKey': '0803a9972d064bd8b3b7379123ea164c',
       'sources': sourceID,
+      'q': query,
           });
     var response = await http.get(url);
 

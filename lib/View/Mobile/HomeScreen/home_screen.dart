@@ -2,6 +2,7 @@ import 'package:akhbarak_el_youm/Core/components/navigator.dart';
 import 'package:akhbarak_el_youm/Core/components/size_box.dart';
 import 'package:akhbarak_el_youm/Core/model/category_model.dart';
 import 'package:akhbarak_el_youm/View/Mobile/NewsScreen/news_screen.dart';
+import 'package:akhbarak_el_youm/View/Mobile/SearchScreen/search_screen.dart';
 import 'package:akhbarak_el_youm/View/Mobile/Settings/settings_screen.dart';
 import 'package:akhbarak_el_youm/View/Mobile/Widget/category_grid_view.dart';
 import 'package:akhbarak_el_youm/generated/assets.dart';
@@ -78,6 +79,13 @@ class _HomeScreenState extends State<HomeScreen> {
               selectedCategory == null ?
               'Akhbarak El Youm' : selectedCategory!.categoryTitle,
             ),
+            actions:  [
+           IconButton(onPressed: ()
+           {
+             navigateTo(context, routeName: SearchScreen.routeName,);
+           }, icon:  const ImageIcon(AssetImage(Assets.imagesSearch)),)
+
+            ],
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(30),

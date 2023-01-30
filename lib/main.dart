@@ -3,6 +3,7 @@ import 'package:akhbarak_el_youm/Core/providers/settings_provider.dart';
 import 'package:akhbarak_el_youm/Core/style/theme.dart';
 import 'package:akhbarak_el_youm/View/Mobile/HomeScreen/home_screen.dart';
 import 'package:akhbarak_el_youm/View/Mobile/NewsDetails/news_details.dart';
+import 'package:akhbarak_el_youm/View/Mobile/SearchScreen/search_screen.dart';
 import 'package:akhbarak_el_youm/View/Mobile/Settings/settings_screen.dart';
 import 'package:akhbarak_el_youm/View/Mobile/SplashScreen/splash_screen.dart';
 import 'package:flutter/foundation.dart';
@@ -82,12 +83,8 @@ class MyApp extends StatelessWidget {
               HomeScreen.routeName: (_) =>  HomeScreen(),
               SettingsScreen.routeName: (_) => const SettingsScreen(),
              NewsDetails.routeName: (_) => const NewsDetails(),
-              // HadithScreen.routeName: (_) => const HadithScreen(),
-              // HadithDetailsScreen.routeName: (_) => const HadithDetailsScreen(),
-              // SebhaScreen.routeName: (_) => const SebhaScreen(),
-
-              // RadioScreen.routeName: (_) => const RadioScreen(),
-              // DesktopScreen.routeName: (_) => const DesktopScreen(),
+               SearchScreen.routeName: (_) => const SearchScreen(),
+              DesktopScreen.routeName: (_) => const DesktopScreen(),
             },
             initialRoute:  SplashScreen.routeName,
           );
