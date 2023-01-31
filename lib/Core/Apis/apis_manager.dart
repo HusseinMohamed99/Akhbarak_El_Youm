@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 class ApisManager {
   static const String baseUrl = 'newsapi.org';
-  static const String apiKey = '0803a9972d064bd8b3b7379123ea164c';
+  static const String apiKey = '47fdf73cd1fe407da9640d540c1366c3';
 
 
 
@@ -16,7 +16,7 @@ class ApisManager {
     //  apiKey=0803a9972d064bd8b3b7379123ea164c&category=sports
 
     var url = Uri.https(baseUrl, '/v2/top-headlines/sources', {
-      'apiKey': '0803a9972d064bd8b3b7379123ea164c',
+      'apiKey': apiKey,
       'category': categoryID,
 
     });
@@ -30,7 +30,7 @@ class ApisManager {
     // https://newsapi.org/v2/everything?sources=business-insider&apiKey=0803a9972d064bd8b3b7379123ea164c
 
     var url = Uri.https(baseUrl, '/v2/everything', {
-      'apiKey': '0803a9972d064bd8b3b7379123ea164c',
+      'apiKey': apiKey,
       'sources': sourceID,
       'q': query,
           });

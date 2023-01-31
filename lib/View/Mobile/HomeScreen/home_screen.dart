@@ -9,6 +9,7 @@ import 'package:akhbarak_el_youm/generated/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'Home-Screen';
@@ -56,12 +57,13 @@ class _HomeScreenState extends State<HomeScreen> {
     CategoryModel(
         categoryID: 'technology',
         categoryTitle: 'Technology',
-        categoryImage: Assets.imagesScience,
+        categoryImage: Assets.imagesSearch,
         categoryBackGround: const Color.fromARGB(255, 57, 165, 82)),
   ];
 
   @override
   Widget build(BuildContext context) {
+
     return Stack(
       children: [
         Container(
@@ -184,6 +186,12 @@ class _HomeScreenState extends State<HomeScreen> {
                             .headline6
                             ?.copyWith(color: Colors.black54),
                       ),
+                      allCategory.isEmpty ? Center(
+                        child: Lottie.asset(
+                          Assets.lottieNodata,
+                        ),
+                      )
+                          :
                       Expanded(
                         child: GridView.builder(
                           padding: const EdgeInsets.all(10),

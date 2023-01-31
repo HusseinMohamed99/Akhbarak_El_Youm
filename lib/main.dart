@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -61,8 +62,7 @@ class MyApp extends StatelessWidget {
             //   Locale('ar', ''), // Spanish, no country code
             // ],
             theme: ThemeApp.lightTheme,
-           // darkTheme: ThemeApp.darkTheme,
-            // themeMode: settingsProvider.currentTheme,
+
 
             debugShowCheckedModeBanner: false,
 
@@ -91,15 +91,9 @@ class MyApp extends StatelessWidget {
         });
   }
 
-  // getValueFromPref() async {
-  //   final pref = await SharedPreferences.getInstance();
-  //   settingsProvider.changeLanguage(pref.getString("Lang") ?? "en");
-  //
-  //   if (pref.getString("Theme") == "Light") {
-  //     settingsProvider.changeTheme(ThemeMode.light);
-  //   } else if (pref.getString("Theme") == "Dark") {
-  //     settingsProvider.changeTheme(ThemeMode.dark);
-  //   }
-  // }
-}
+  getValueFromPref() async {
+    final pref = await SharedPreferences.getInstance();
+    settingsProvider.changeLanguage(pref.getString("Lang") ?? "en");
+    }
+  }
 

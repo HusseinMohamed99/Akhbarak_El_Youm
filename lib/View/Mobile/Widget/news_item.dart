@@ -1,6 +1,7 @@
 import 'package:akhbarak_el_youm/Core/adaptive/indicator.dart';
 import 'package:akhbarak_el_youm/Core/components/indicator.dart';
 import 'package:akhbarak_el_youm/Core/components/navigator.dart';
+import 'package:akhbarak_el_youm/Core/date_format/date_format.dart';
 import 'package:akhbarak_el_youm/Core/model/news.dart';
 import 'package:akhbarak_el_youm/View/Mobile/NewsDetails/news_details.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -63,7 +64,7 @@ class NewsItem extends StatelessWidget {
                     textAlign: TextAlign.start,
                   ),
                   Text(
-                    news.publishedAt ?? '',
+                   MyDateUtils.formatDate( news.publishedAt ?? ''),
                     textAlign: TextAlign.end,
                   ),
                 ],

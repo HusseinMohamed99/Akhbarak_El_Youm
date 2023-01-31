@@ -12,5 +12,6 @@ class Assets {
   static const String imagesScience = 'assets/images/science.png';
   static const String imagesSearch = 'assets/images/search.png';
   static const String imagesSports = 'assets/images/sports.png';
+  static const String lottieNodata = 'assets/lottie/nodata.zip';
 
 }

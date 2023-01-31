@@ -6,6 +6,7 @@ import 'package:akhbarak_el_youm/View/Mobile/Widget/news_item.dart';
 import 'package:akhbarak_el_youm/generated/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 
 class SearchScreen extends StatefulWidget {
   static const String routeName = 'Search-Screen';
@@ -39,8 +40,7 @@ class _SearchScreenState extends State<SearchScreen> {
           margin: const EdgeInsets.all(10),
           height: 60,
           child: TextFormField(
-            onChanged: (String? value)
-            {
+            onChanged: (String? value) {
               debugPrint(value!);
               setState(() {
                 queryText = value;
@@ -69,8 +69,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   ),
                 ),
                 prefixIcon: IconButton(
-                  onPressed: ()
-                  {
+                  onPressed: () {
                     pop(context);
                   },
                   icon: const ImageIcon(
@@ -89,27 +88,27 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
         ),
       ),
-      body:
-          searchFunction().isEmpty ? const Center(child: Text("No data")):
-      ListView.separated(itemBuilder: (buildContext,index)
-      {
-        return NewsItem(searchFunction().elementAt(index));
-      }, separatorBuilder:(buildContext,index) {
-
-       return const Space(width: 0, height: 10);
-      }, itemCount: searchFunction().length),
+      body: searchFunction().isEmpty
+          ? Center(
+              child: Lottie.asset(
+                Assets.lottieNodata,
+              ),
+            )
+          : ListView.separated(
+              itemBuilder: (buildContext, index) {
+                return NewsItem(searchFunction().elementAt(index));
+              },
+              separatorBuilder: (buildContext, index) {
+                return const Space(width: 0, height: 10);
+              },
+              itemCount: searchFunction().length),
     );
   }
 
-  List searchFunction()
-  {
-    ApisManager.getNews(query: queryText).then((newsResponse)
-    {
-
+  List searchFunction() {
+    ApisManager.getNews(query: queryText).then((newsResponse) {
       listOfNews = newsResponse.newsList ?? [];
-
-    }).catchError((error)
-    {
+    }).catchError((error) {
       debugPrint('Error During Call Apis $error');
     });
     return listOfNews;
