@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'package:akhbarak_el_youm/Core/components/navigator.dart';
-import 'package:akhbarak_el_youm/View/Mobile/HomeScreen/home_screen.dart';
+import 'package:akhbarak_el_youm/View/HomeScreen/home_screen.dart';
 import 'package:akhbarak_el_youm/generated/assets.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -60,7 +61,9 @@ class _SplashScreenState extends State<SplashScreen> {
                     displayFullTextOnTap: true,
                     isRepeatingAnimation: true,
                     onTap: () {
-                      print("Tap Event");
+                      if (kDebugMode) {
+                        print("Tap Event");
+                      }
                     },
                   ),
                 )

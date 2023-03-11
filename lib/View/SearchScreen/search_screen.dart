@@ -2,9 +2,10 @@ import 'package:akhbarak_el_youm/Core/Apis/apis_manager.dart';
 import 'package:akhbarak_el_youm/Core/components/navigator.dart';
 import 'package:akhbarak_el_youm/Core/components/size_box.dart';
 import 'package:akhbarak_el_youm/Core/model/news.dart';
-import 'package:akhbarak_el_youm/View/Mobile/Widget/news_item.dart';
+import 'package:akhbarak_el_youm/View/Widget/news_item.dart';
 import 'package:akhbarak_el_youm/generated/assets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 
@@ -26,19 +27,19 @@ class _SearchScreenState extends State<SearchScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        toolbarHeight: 70,
+        toolbarHeight: 70.h,
         elevation: 0,
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
+        shape: RoundedRectangleBorder(
+            borderRadius: const BorderRadius.only(
           bottomRight: Radius.circular(30),
           bottomLeft: Radius.circular(30),
-        )),
+        ).r),
         leading: const SizedBox(),
-        leadingWidth: 10,
+        leadingWidth: 10.w,
         title: Container(
-          padding: const EdgeInsets.all(10),
-          margin: const EdgeInsets.all(10),
-          height: 60,
+          padding: const EdgeInsets.all(10).r,
+          margin: const EdgeInsets.all(10).r,
+          height: 60.h,
           child: TextFormField(
             onChanged: (String? value) {
               debugPrint(value!);
@@ -51,20 +52,22 @@ class _SearchScreenState extends State<SearchScreen> {
                   borderSide: const BorderSide(
                     color: Colors.white,
                   ),
-                  borderRadius: BorderRadius.circular(25),
+                  borderRadius: BorderRadius.circular(25).r,
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: const BorderSide(
                     color: Colors.white,
                   ),
-                  borderRadius: BorderRadius.circular(25),
+                  borderRadius: BorderRadius.circular(25).r,
                 ),
                 filled: true,
                 fillColor: Colors.white,
                 suffixIcon: IconButton(
                   onPressed: () {},
                   icon: const ImageIcon(
-                    AssetImage(Assets.imagesSearch),
+                    AssetImage(
+                      Assets.imagesSearch,
+                    ),
                     color: Color.fromARGB(255, 57, 165, 82),
                   ),
                 ),
@@ -84,7 +87,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   fontWeight: FontWeight.w400,
                   color: const Color.fromARGB(255, 57, 165, 82),
                 ),
-                contentPadding: const EdgeInsets.only(top: 10)),
+                contentPadding: const EdgeInsets.only(top: 10).r),
           ),
         ),
       ),
@@ -99,9 +102,10 @@ class _SearchScreenState extends State<SearchScreen> {
                 return NewsItem(searchFunction().elementAt(index));
               },
               separatorBuilder: (buildContext, index) {
-                return const Space(width: 0, height: 10);
+                return Space(width: 0, height: 10.h);
               },
-              itemCount: searchFunction().length),
+              itemCount: searchFunction().length,
+            ),
     );
   }
 

@@ -1,13 +1,15 @@
 import 'package:akhbarak_el_youm/Core/model/category_model.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CategoryGridView extends StatelessWidget {
-  CategoryModel category;
-  int index;
-  Function onClickItem;
+  final CategoryModel category;
+  final int index;
+  final Function onClickItem;
 
-  CategoryGridView({
+  const CategoryGridView({
     super.key,
     required this.category,
     required this.index,
@@ -19,10 +21,12 @@ class CategoryGridView extends StatelessWidget {
     return InkWell(
       onTap: () {
         onClickItem(category);
-      print(category.categoryID);
+        if (kDebugMode) {
+          print(category.categoryID);
+        }
       },
       child: Container(
-        margin: const EdgeInsets.all(12),
+        margin: const EdgeInsets.all(12).r,
         decoration: BoxDecoration(
             color: category.categoryBackGround,
             borderRadius: BorderRadius.only(
@@ -30,16 +34,18 @@ class CategoryGridView extends StatelessWidget {
               topRight: const Radius.circular(25),
               bottomLeft: Radius.circular(index % 2 == 0 ? 25 : 0),
               bottomRight: Radius.circular(index % 2 == 0 ? 0 : 25),
-            )),
+            ).r),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-             Image.asset(category.categoryImage),
+            Image.asset(
+              category.categoryImage,
+            ),
             Text(
               category.categoryTitle,
               style: GoogleFonts.exo(
-                fontSize: 22,
+                fontSize: 22.sp,
                 fontWeight: FontWeight.w400,
                 color: Colors.white,
               ),

@@ -6,7 +6,7 @@ import 'package:akhbarak_el_youm/Core/model/news.dart';
 import 'package:akhbarak_el_youm/generated/assets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -15,8 +15,6 @@ class NewsDetails extends StatelessWidget {
   const NewsDetails({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    String image = 'https://img.freepik.com/free-vector/ancient-egyptian-pharaoh-with-rod-desert-with-pyramids-vector-cartoon-illustration-landscape-with-yellow-sand-dunes-pharaoh-tombs-figure-king-egypt-tumbleweed_107791-3066.jpg?w=1380&t=st=1675042788~exp=1675043388~hmac=d47a769401ed6a63e9a3b47f24653649438172e90ba87869be2e575ed8243999';
-
     News news = ModalRoute.of(context)?.settings.arguments as News;
 
     return  Stack(
@@ -32,105 +30,120 @@ class NewsDetails extends StatelessWidget {
         ),
         Scaffold(
           appBar: AppBar(
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                bottomRight: Radius.circular(30),
-                bottomLeft: Radius.circular(30),
-              )
+            shape: RoundedRectangleBorder(
+                borderRadius: const BorderRadius.only(
+              bottomRight: Radius.circular(30),
+              bottomLeft: Radius.circular(30),
+            ).r),
+            title: Text(
+              'News Title',
+              style: GoogleFonts.exo(
+                fontSize: 22.sp,
+                fontWeight: FontWeight.w400,
+              ),
             ),
-            title:  Text('News Title',style: GoogleFonts.exo(
-              fontSize: 22,
-              fontWeight: FontWeight.w400,
-            ),),
           ),
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Column(
                 children: [
-                  const Space(width: 0, height: 10),
+                  Space(width: 0, height: 10.h),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0).r,
                     child: ClipRRect(
-
                         borderRadius: const BorderRadius.only(
-                          bottomRight: Radius.circular( 20),
-                          bottomLeft: Radius.circular( 20),
-
-                        ),
+                          bottomRight: Radius.circular(20),
+                          bottomLeft: Radius.circular(20),
+                        ).r,
                         child: CachedNetworkImage(
                           imageUrl: news.urlToImage ?? '',
                           fit: BoxFit.fill,
-                          height: 200,
+                          height: 200.h,
                           width: double.infinity,
-                          progressIndicatorBuilder: (context, url, downloadProgress) =>
-                              Center(child: AdaptiveIndicator(os: getOs())),
-                          errorWidget: (context, url, error) => const Icon(Icons.error),
+                          progressIndicatorBuilder:
+                              (context, url, downloadProgress) => Center(
+                            child: AdaptiveIndicator(
+                              os: getOs(),
+                            ),
+                          ),
+                          errorWidget: (context, url, error) => Icon(
+                            Icons.error,
+                            size: 24.sp,
+                          ),
                         )),
                   ),
                   Card(
-                    margin: const EdgeInsets.all(10),
+                    margin: const EdgeInsets.all(10).r,
                     elevation: 10,
                     clipBehavior: Clip.antiAliasWithSaveLayer,
-
                     shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(20),
-                      )
-                    ),
+                        borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    )),
                     child: Padding(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(10.0).r,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           Text(
                             news.source!.name ?? '',
-
                             style: GoogleFonts.poppins(
-                                color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w400),
+                              color: Colors.grey,
+                              fontSize: 20.sp,
+                              fontWeight: FontWeight.w400,
+                            ),
                           ),
                           Text(
                             news.author ?? '',
-
-                            style: GoogleFonts.poppins(color: Colors.grey),
+                            style: GoogleFonts.poppins(
+                              color: Colors.grey,
+                            ),
                           ),
                           Text(
                             news.title ?? '',
-
                             style: GoogleFonts.poppins(
                               color: Colors.black,
-                              fontSize: 18,
+                              fontSize: 18.sp,
                             ),
                             textAlign: TextAlign.start,
                           ),
-                           Text(
-                          MyDateUtils.formatDate(news.publishedAt ?? ''),
+                          Text(
+                            MyDateUtils.formatDate(news.publishedAt ?? ''),
                             textAlign: TextAlign.end,
                           ),
-                           const Space(width: 0, height: 10),
-                           Text(
+                          Space(width: 0, height: 10.h),
+                          Text(
                             news.description ?? '',
-                             style: GoogleFonts.poppins(
-                               fontSize: 14
-                             ),
+                            style: GoogleFonts.poppins(
+                              fontSize: 14.sp,
+                            ),
                           ),
                           InkWell(
-                            onTap: ()
-                            {
-                              _launchUrl(Uri.parse(news.url??''));
+                            onTap: () {
+                              _launchUrl(
+                                Uri.parse(news.url ?? ''),
+                              );
                             },
                             child: Container(
-                              padding: const EdgeInsets.only(top: 10),
+                              padding: const EdgeInsets.only(top: 10).r,
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                   Text('View Full Article',style: GoogleFonts.poppins(
-                                    fontSize: 14,
-                                     fontWeight: FontWeight.bold,
-                                     color: const Color.fromARGB(255, 66, 80, 92),
-                                  ),),
-                                  const Space(width: 10, height: 0),
-                                  const Icon(Icons.arrow_right,color: Color.fromARGB(255, 66, 80, 92))
+                                  Text(
+                                    'View Full Article',
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.bold,
+                                      color:
+                                          const Color.fromARGB(255, 66, 80, 92),
+                                    ),
+                                  ),
+                                  Space(width: 10.w, height: 0),
+                                  Icon(Icons.arrow_right,
+                                      size: 24.sp,
+                                      color:
+                                          const Color.fromARGB(255, 66, 80, 92))
                                 ],
                               ),
                             ),
