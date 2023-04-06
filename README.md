@@ -8,5 +8,5 @@
 | Search Screen | Search Screen                       |
 | <img src="assets/4.jpg" width="400"> | <img src="assets/5.jpg" width="400"> |
 | Add Task Screen Light | Add Task Screen Dark                       |
-| <video src="assets/6.mp4" width="400"> | <img src="assets/images/11.jpg" width="400"> |
+| <img src="assets/6.mp4" > |
 
