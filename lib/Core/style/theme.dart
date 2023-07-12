@@ -19,16 +19,16 @@ class ThemeApp {
     ),
     cardColor: Colors.white,
     textTheme: TextTheme(
-      headline6: TextStyle(
+      titleLarge: TextStyle(
         fontSize: 22.sp,
         color: Colors.black,
         fontWeight: FontWeight.w500,
       ),
-      headline4: TextStyle(
+      headlineMedium: TextStyle(
         fontSize: 28.sp,
         color: Colors.black,
       ),
-      subtitle2: TextStyle(
+      titleSmall: TextStyle(
         fontSize: 14.sp,
         color: Colors.black,
       ),

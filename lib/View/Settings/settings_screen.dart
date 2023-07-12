@@ -16,7 +16,7 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
-      return Stack(
+    return Stack(
       children: [
         Container(
           color: Colors.white,
@@ -44,7 +44,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   children: [
                     Text(
                       'Language',
-                      style: Theme.of(context).textTheme.subtitle2!.copyWith(
+                      style: Theme.of(context).textTheme.titleSmall!.copyWith(
                             fontWeight: FontWeight.bold,
                             fontSize: 20.sp,
                           ),
@@ -93,7 +93,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                     Text(
                       'GitHub',
-                      style: Theme.of(context).textTheme.subtitle2!.copyWith(
+                      style: Theme.of(context).textTheme.titleSmall!.copyWith(
                           fontWeight: FontWeight.bold, fontSize: 20.sp),
                     ),
                     SizedBox(
@@ -128,7 +128,7 @@ You can develop it from my GitHub https://github.com/HusseinMohamed99''');
                                 'GitHub',
                                 style: Theme.of(context)
                                     .textTheme
-                                    .headline6!
+                                    .titleLarge!
                                     .copyWith(
                                       fontSize: 20.sp,
                                       fontWeight: FontWeight.bold,
@@ -148,7 +148,7 @@ You can develop it from my GitHub https://github.com/HusseinMohamed99''');
                     Space(width: 0, height: 24.h),
                     Text(
                       'WebSite',
-                      style: Theme.of(context).textTheme.subtitle2!.copyWith(
+                      style: Theme.of(context).textTheme.titleSmall!.copyWith(
                           fontWeight: FontWeight.bold, fontSize: 20.sp),
                     ),
                     Space(width: 0, height: 8.h),
@@ -181,7 +181,7 @@ You can connect with me from my Portfolio https://zaap.bio/HusseinMohamed''');
                                 'My Portfolio',
                                 style: Theme.of(context)
                                     .textTheme
-                                    .headline6!
+                                    .titleLarge!
                                     .copyWith(
                                       fontSize: 20.sp,
                                       fontWeight: FontWeight.bold,

@@ -191,13 +191,13 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           body: selectedCategory == null
               ? Container(
-            padding: const EdgeInsets.all(10).r,
+                  padding: const EdgeInsets.all(10).r,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Text(
                         'Pick your category of interest',
-                        style: Theme.of(context).textTheme.headline6?.copyWith(
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
                               color: Colors.black54,
                             ),
                       ),
