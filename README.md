@@ -1,6 +1,6 @@
 # akhbarak_el_youm
 
-Developed a news app that connects to APIs to show users all news based on the category, such as sports, business, and science.
+Developed a News App that connects to APIs to show users all news based on the category, such as sports, business, and science.
 Implemented a dark mode option to allow users to change the appearance of the app.
 Used APIs to fetch data from news sources, such as BBC, CNN, and The New York Times.
 Categorized news articles into different categories, such as sports, business, science, and entertainment.
@@ -16,5 +16,8 @@ Allowed users to share news articles with friends.
 | Search Screen | Search Screen                       |
 | <img src="assets/4.jpg" width="400"> | <img src="assets/5.jpg" width="400"> |
 
+Akhbarak ElYoum
+:-:
+<video src='https://github.com/HusseinMohamed99/Akhbarak_El_Youm/assets/84459939/8a9bdc4e-e204-49f6-8354-283444cf39c2' width=250/> |
 
 
